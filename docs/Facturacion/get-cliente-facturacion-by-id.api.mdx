@@ -1,0 +1,38 @@
+---
+id: get-cliente-facturacion-by-id
+title: "Obtiene el detalle de un cliente específico para facturación."
+description: "Obtiene el detalle de un cliente específico para facturación."
+sidebar_label: "Obtiene el detalle de un cliente específico para facturación."
+hide_title: true
+hide_table_of_contents: true
+api: {"operationId":"getClienteFacturacionById","parameters":[{"name":"id","in":"path","description":"Identificador del cliente a obtener.","required":true,"schema":{"type":"integer","minimum":1}}],"responses":{"200":{"description":"Cliente encontrado.","content":{"application/json":{"schema":{"type":"object","properties":{"id":{"type":"integer"},"nombre":{"type":"string"},"cuit":{"type":"string"}},"required":["id","nombre","cuit"],"title":"ClienteFacturacion"}}}},"404":{"description":"Cliente no encontrado."}},"description":"Obtiene el detalle de un cliente específico para facturación.","method":"get","path":"/facturacion/clientes/{id}","servers":[{"url":"https://api-datos-facturacion-v2-equipo-almacenes-test.apps.ocptest.andreani.com.ar"}],"info":{"title":"Datos de Facturación API","version":"1.0.0","description":"Microservicio para gestionar los datos de facturación de los clientes."},"postman":{"name":"Obtiene el detalle de un cliente específico para facturación.","description":{"type":"text/plain"},"url":{"path":["facturacion","clientes",":id"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) Identificador del cliente a obtener.","type":"text/plain"},"type":"any","value":"","key":"id"}]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET"}}
+sidebar_class_name: "get api-method"
+info_path: docs/facturacion/datos-de-facturacion-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Obtiene el detalle de un cliente específico para facturación.
+
+
+
+Obtiene el detalle de un cliente específico para facturación.
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"id","in":"path","description":"Identificador del cliente a obtener.","required":true,"schema":{"type":"integer","minimum":1}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Cliente encontrado.
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"id"} required={true} schemaName={"integer"} qualifierMessage={undefined} schema={{"type":"integer"}}></SchemaItem><SchemaItem collapsible={false} name={"nombre"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"cuit"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"id\": 0,\n  \"nombre\": \"string\",\n  \"cuit\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Cliente no encontrado.
+
+</div><div></div></TabItem></ApiTabs></div>
+      

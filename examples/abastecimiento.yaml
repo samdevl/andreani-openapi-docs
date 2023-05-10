@@ -1,0 +1,119 @@
+openapi: 3.0.0
+info:
+  title: Especificación de Abastecimiento
+  version: 1.0.0
+servers:
+  - url: https://api-abastecimiento-v1.example.com
+paths:
+  /abastecimientoV2/articulos:
+    get:
+      summary: Obtiene la lista de artículos disponibles para abastecimiento.
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Crea un nuevo pedido de abastecimiento.
+      requestBody:
+        description: Datos del pedido
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PedidoAbastecimiento'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PedidoAbastecimientoResponse'
+  /abastecimientoV2/pedidos:
+    get:
+      summary: Obtiene la lista de pedidos de abastecimiento.
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Crea un nuevo pedido de abastecimiento.
+      requestBody:
+        description: Datos del pedido
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PedidoAbastecimiento'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PedidoAbastecimientoResponse'
+components:
+  schemas:
+    PedidoAbastecimiento:
+      type: object
+      properties:
+        fecha:
+          type: string
+          format: date-time
+        articulos:
+          type: array
+          items:
+            $ref: '#/components/schemas/Articulo'
+        proveedor:
+          type: object
+          properties:
+            nombre:
+              type: string
+            direccion:
+              type: string
+            telefono:
+              type: string
+      required:
+        - fecha
+        - articulos
+        - proveedor
+    PedidoAbastecimientoResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        fecha:
+          type: string
+          format: date-time
+        articulos:
+          type: array
+          items:
+            $ref: '#/components/schemas/Articulo'
+        proveedor:
+          type: object
+          properties:
+            nombre:
+              type: string
+            direccion:
+              type: string
+            telefono:
+              type: string
+      required:
+        - id
+        - fecha
+        - articulos
+        - proveedor
+    Articulo:
+      type: object
+      properties:
+        id:
+          type: integer
+        nombre:
+          type: string
+        cantidad:
+          type: integer
+        precio:
+          type: number
+          format: double
+      required:
+        - id
+        - nombre
+        - cantidad
+        - precio

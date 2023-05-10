@@ -1,0 +1,108 @@
+openapi: 3.0.0
+info:
+  title: API Alta de Lote
+  version: 1.0.0
+servers:
+  - url: https://api-alta-lote-v2-equipo-almacenes-test.apps.ocptest.andreani.com.ar/api
+paths:
+  /lotes:
+    get:
+      summary: Obtiene la lista de todos los lotes
+      operationId: getLotes
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Crea un nuevo lote
+      operationId: crearLote
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Lote'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lote'
+  /lotes/{id}:
+    get:
+      summary: Obtiene el detalle de un lote específico
+      operationId: getLoteById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Id del lote a obtener
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lote'
+    put:
+      summary: Actualiza los datos de un lote específico
+      operationId: actualizarLote
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Id del lote a actualizar
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Lote'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lote'
+    delete:
+      summary: Elimina un lote específico
+      operationId: eliminarLote
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Id del lote a eliminar
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: No Content
+components:
+  schemas:
+    Lote:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: Id del lote
+        nombre:
+          type: string
+          description: Nombre del lote
+        fecha_vencimiento:
+          type: string
+          format: date
+          description: Fecha de vencimiento del lote
+        cantidad:
+          type: integer
+          format: int32
+          description: Cantidad de artículos en el lote
+        precio_unitario:
+          type: number
+          format: float
+          description: Precio unitario del lote

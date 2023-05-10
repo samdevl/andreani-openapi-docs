@@ -1,0 +1,38 @@
+---
+id: eliminar-cliente-facturacion
+title: "Elimina un cliente específico para facturación."
+description: "Elimina un cliente específico para facturación."
+sidebar_label: "Elimina un cliente específico para facturación."
+hide_title: true
+hide_table_of_contents: true
+api: {"operationId":"eliminarClienteFacturacion","parameters":[{"name":"id","in":"path","description":"Identificador del cliente a eliminar.","required":true,"schema":{"type":"integer","minimum":1}}],"responses":{"204":{"description":"Cliente eliminado exitosamente."},"404":{"description":"Cliente no encontrado."}},"description":"Elimina un cliente específico para facturación.","method":"delete","path":"/facturacion/clientes/{id}","servers":[{"url":"https://api-datos-facturacion-v2-equipo-almacenes-test.apps.ocptest.andreani.com.ar"}],"info":{"title":"Datos de Facturación API","version":"1.0.0","description":"Microservicio para gestionar los datos de facturación de los clientes."},"postman":{"name":"Elimina un cliente específico para facturación.","description":{"type":"text/plain"},"url":{"path":["facturacion","clientes",":id"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) Identificador del cliente a eliminar.","type":"text/plain"},"type":"any","value":"","key":"id"}]},"method":"DELETE"}}
+sidebar_class_name: "delete api-method"
+info_path: docs/facturacion/datos-de-facturacion-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Elimina un cliente específico para facturación.
+
+
+
+Elimina un cliente específico para facturación.
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"id","in":"path","description":"Identificador del cliente a eliminar.","required":true,"schema":{"type":"integer","minimum":1}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"204"} value={"204"}><div>
+
+Cliente eliminado exitosamente.
+
+</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Cliente no encontrado.
+
+</div><div></div></TabItem></ApiTabs></div>
+      

@@ -1,0 +1,56 @@
+openapi: 3.0.0
+info:
+  title: Cambio de estado de lote API
+  version: 1.0.0
+  description: API para cambiar el estado de los lotes
+servers:
+  - url: http://api-cambio-estado-lote.com/v1
+paths:
+  /cambioEstadoLote/lotes:
+    get:
+      summary: Obtiene la lista de todos los lotes para cambio de estado
+      responses:
+        200:
+          description: Lista de lotes
+    /{id}:
+      get:
+        summary: Obtiene el detalle de un lote específico para cambio de estado
+        parameters:
+          - in: path
+            name: id
+            required: true
+            description: ID del lote
+            schema:
+              type: integer
+              format: int64
+        responses:
+          200:
+            description: Detalle del lote
+      put:
+        summary: Actualiza el estado de un lote específico para cambio de estado
+        parameters:
+          - in: path
+            name: id
+            required: true
+            description: ID del lote
+            schema:
+              type: integer
+              format: int64
+          - in: body
+            name: estado
+            description: Nuevo estado del lote
+            required: true
+            schema:
+              type: object
+              properties:
+                estado:
+                  type: string
+                  enum: [disponible, en_proceso, finalizado]
+                  example: disponible
+        responses:
+          200:
+            description: Lote actualizado exitosamente
+          400:
+            description: Error al actualizar el lote
+          404:
+            description: Lote no encontrado

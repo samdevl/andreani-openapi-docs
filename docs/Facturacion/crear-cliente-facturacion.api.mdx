@@ -1,0 +1,34 @@
+---
+id: crear-cliente-facturacion
+title: "Crea un nuevo cliente para facturación."
+description: "Crea un nuevo cliente para facturación."
+sidebar_label: "Crea un nuevo cliente para facturación."
+hide_title: true
+hide_table_of_contents: true
+api: {"operationId":"crearClienteFacturacion","requestBody":{"required":true,"content":{"application/json":{"schema":{"type":"object","title":"NuevoClienteFacturacion"}}}},"responses":{"201":{"description":"Cliente creado exitosamente.","content":{"application/json":{"schema":{"type":"object","properties":{"id":{"type":"integer"},"nombre":{"type":"string"},"cuit":{"type":"string"}},"required":["id","nombre","cuit"],"title":"ClienteFacturacion"}}}}},"description":"Crea un nuevo cliente para facturación.","method":"post","path":"/facturacion/clientes","servers":[{"url":"https://api-datos-facturacion-v2-equipo-almacenes-test.apps.ocptest.andreani.com.ar"}],"jsonRequestBodyExample":{},"info":{"title":"Datos de Facturación API","version":"1.0.0","description":"Microservicio para gestionar los datos de facturación de los clientes."},"postman":{"name":"Crea un nuevo cliente para facturación.","description":{"type":"text/plain"},"url":{"path":["facturacion","clientes"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Content-Type","value":"application/json"},{"key":"Accept","value":"application/json"}],"method":"POST","body":{"mode":"raw","raw":"\"\"","options":{"raw":{"language":"json"}}}}}
+sidebar_class_name: "post api-method"
+info_path: docs/facturacion/datos-de-facturacion-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Crea un nuevo cliente para facturación.
+
+
+
+Crea un nuevo cliente para facturación.
+
+<MimeTabs><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong><strong style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-required)"}}> required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>object</strong></div></li></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"201"} value={"201"}><div>
+
+Cliente creado exitosamente.
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"id"} required={true} schemaName={"integer"} qualifierMessage={undefined} schema={{"type":"integer"}}></SchemaItem><SchemaItem collapsible={false} name={"nombre"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"cuit"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"id\": 0,\n  \"nombre\": \"string\",\n  \"cuit\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div>
+      

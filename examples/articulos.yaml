@@ -1,0 +1,128 @@
+openapi: 3.0.0
+info:
+  title: API de Artículos
+  version: 1.0.0
+  description: API para manejo de artículos
+servers:
+  - url: https://api-articulos-v1-microservicio.apps.ocptest.andreani.com.ar
+paths:
+  /articulos:
+    get:
+      summary: Obtiene la lista de todos los artículos
+      responses:
+        '200':
+          description: Lista de todos los artículos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Articulo'
+    post:
+      summary: Crea un nuevo artículo
+      requestBody:
+        description: Datos del artículo a crear
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArticuloCreate'
+      responses:
+        '201':
+          description: Artículo creado exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Articulo'
+  /articulos/{id}:
+    get:
+      summary: Obtiene el detalle de un artículo específico
+      parameters:
+        - name: id
+          in: path
+          description: ID del artículo a obtener
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+      responses:
+        '200':
+          description: Detalle del artículo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Articulo'
+    put:
+      summary: Actualiza los datos de un artículo específico
+      parameters:
+        - name: id
+          in: path
+          description: ID del artículo a actualizar
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+      requestBody:
+        description: Nuevos datos del artículo
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArticuloUpdate'
+      responses:
+        '200':
+          description: Artículo actualizado exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Articulo'
+    delete:
+      summary: Elimina un artículo específico
+      parameters:
+        - name: id
+          in: path
+          description: ID del artículo a eliminar
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+      responses:
+        '204':
+          description: Artículo eliminado exitosamente
+components:
+  schemas:
+    Articulo:
+      type: object
+      properties:
+        id:
+          type: integer
+          minimum: 1
+          example: 1
+        nombre:
+          type: string
+          example: Camiseta
+        descripcion:
+          type: string
+          example: Camiseta deportiva de color rojo
+        precio:
+          type: number
+          minimum: 0
+          example: 25.99
+      required:
+        - id
+        - nombre
+        - descripcion
+        - precio
+    ArticuloCreate:
+      type: object
+      properties:
+        nombre:
+          type: string
+          example: Camiseta
+        descripcion:
+          type: string
+          example: Camiseta deportiva de color rojo
+        precio:
+          type: number
+          minimum: 0
+          example: 25.
