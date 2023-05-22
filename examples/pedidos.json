@@ -1,0 +1,718 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Alta de Pedidos v2",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/almacenes/pedidos": {
+      "post": {
+        "operationId": "generaSolicitudAltaPedido",
+        "summary": "Genera una solicitud de alta de pedido",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "almacen": { "type": "string" },
+                  "contratoDistribucion": { "type": "string" },
+                  "contratoWarehouse": { "type": "string" },
+                  "instancia": { "type": "string" },
+                  "pedido": {
+                    "type": "object",
+                    "properties": {
+                      "almacenCliente": { "type": "string" },
+                      "archivoRemito": { "type": "string" },
+                      "cambioLoteDirigido": { "type": "string" },
+                      "cot": { "type": "string" },
+                      "datosAdicionales": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "contenido": { "type": "string" },
+                            "meta": { "type": "string" }
+                          }
+                        }
+                      },
+                      "destinatario": {
+                        "type": "object",
+                        "properties": {
+                          "contacto": { "type": "string" },
+                          "direccion": {
+                            "type": "object",
+                            "properties": {
+                              "calle": { "type": "string" },
+                              "codigoPostal": { "type": "string" },
+                              "departamento": { "type": "string" },
+                              "localidad": { "type": "string" },
+                              "numero": { "type": "string" },
+                              "pais": { "type": "string" },
+                              "piso": { "type": "string" },
+                              "provincia": { "type": "string" },
+                              "referenciaDeDomicilio": { "type": "string" }
+                            }
+                          },
+                          "email": { "type": "string" },
+                          "idDestinatario": { "type": "string" },
+                          "idInternoCliente": { "type": "string" },
+                          "nombreCompleto": { "type": "string" },
+                          "numeroDeDocumento": { "type": "string" },
+                          "telefono": { "type": "string" },
+                          "tipoDeDocumento": { "type": "string" }
+                        }
+                      },
+                      "distribuidor": {
+                        "type": "object",
+                        "properties": {
+                          "datosAdicionales": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "contenido": { "type": "string" },
+                                "meta": { "type": "string" }
+                              }
+                            }
+                          },
+                          "etiqueta": { "type": "string" },
+                          "nombre": { "type": "string" },
+                          "numeroDeEnvio": { "type": "string" },
+                          "remito": { "type": "string" }
+                        }
+                      },
+                      "estatusOTdeTraza": { "type": "string" },
+                      "facturaLegal": { "type": "string" },
+                      "fechaDeExpedicionSolicitada": { "type": "string" },
+                      "fechaDeFacturacion": { "type": "string" },
+                      "fechaEntrega": { "type": "string" },
+                      "fechaPedido": { "type": "string" },
+                      "franjaHoraria": { "type": "string" },
+                      "lineas": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "admitePickingParcial": { "type": "string" },
+                            "articulo": {
+                              "type": "object",
+                              "properties": {
+                                "cantidad": { "type": "number" },
+                                "codigo": { "type": "string" },
+                                "lote": {
+                                  "type": "object",
+                                  "properties": {
+                                    "estado": { "type": "string" },
+                                    "fechaDeVencimiento": { "type": "string" },
+                                    "loteDeFabricante": { "type": "string" },
+                                    "loteSecundario": { "type": "string" },
+                                    "otrosDatos": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "contenido": { "type": "string" },
+                                          "meta": { "type": "string" }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "numeroDePedido": { "type": "string" },
+                                "propietario": { "type": "string" },
+                                "unidadDeMedida": { "type": "string" },
+                                "zonaConsumo": { "type": "string" }
+                              }
+                            },
+                            "contratoWarehouse": { "type": "string" },
+                            "estatusOtDeAcondi": { "type": "string" },
+                            "numeroDeLinea": { "type": "string" },
+                            "tipoDeAcondicionamientoSecundario": { "type": "string" },
+                            "tiposDeAcondicionamientoSecundario": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "tipoDeAcondicionamiento": { "type": "number" }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "linkImpresionRemito": { "type": "string" },
+                      "marketPlace": { "type": "string" },
+                      "notas": { "type": "string" },
+                      "numeroOrdenExterna": { "type": "string" },
+                      "ordenCompra": { "type": "string" },
+                      "precioValorFC": { "type": "string" },
+                      "propietario": { "type": "string" },
+                      "remito": { "type": "string" },
+                      "tieneGestionCobranza": { "type": "string" },
+                      "valorDeclarado": { "type": "string" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "idTransaccion": { "type": "number" }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "detail": { "type": "string" },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "field": { "type": "string" },
+                          "message": { "type": "string" }
+                        }
+                      }
+                    },
+                    "status": { "type": "number" },
+                    "title": { "type": "string" },
+                    "type": { "type": "string" }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "detail": { "type": "string" },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "field": { "type": "string" },
+                          "message": { "type": "string" }
+                        }
+                      }
+                    },
+                    "status": { "type": "number" },
+                    "title": { "type": "string" },
+                    "type": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/almacenes/pedidos/{idtransaccion}": {
+      "get": {
+        "operationId": "consultaSolicitudAltaPedido",
+        "summary": "Consulta una solicitud de alta de pedido",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "idtransaccion",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "ID de transacción"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "estado": {
+                      "type": "string"
+                    },
+                    "fechaCreacion": {
+                      "type": "string"
+                    },
+                    "fechaModificacion": {
+                      "type": "string"
+                    },
+                    "razon": {
+                      "type": "string"
+                    },
+                    "request": {
+                      "type": "object",
+                      "properties": {
+                        "almacen": {
+                          "type": "string"
+                        },
+                        "contratoDistribucion": {
+                          "type": "string"
+                        },
+                        "contratoWarehouse": {
+                          "type": "string"
+                        },
+                        "instancia": {
+                          "type": "string"
+                        },
+                        "pedido": {
+                          "type": "object",
+                          "properties": {
+                            "almacenCliente": {
+                              "type": "string"
+                            },
+                            "archivoRemito": {
+                              "type": "string"
+                            },
+                            "cambioLoteDirigido": {
+                              "type": "string"
+                            },
+                            "cot": {
+                              "type": "string"
+                            },
+                            "datosAdicionales": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "contenido": {
+                                    "type": "string"
+                                  },
+                                  "meta": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            },
+                            "destinatario": {
+                              "type": "object",
+                              "properties": {
+                                "contacto": {
+                                  "type": "string"
+                                },
+                                "direccion": {
+                                  "type": "object",
+                                  "properties": {
+                                    "calle": {
+                                      "type": "string"
+                                    },
+                                    "codigoPostal": {
+                                      "type": "string"
+                                    },
+                                    "departamento": {
+                                      "type": "string"
+                                    },
+                                    "localidad": {
+                                      "type": "string"
+                                    },
+                                    "numero": {
+                                      "type": "string"
+                                    },
+                                    "pais": {
+                                      "type": "string"
+                                    },
+                                    "piso": {
+                                      "type": "string"
+                                    },
+                                    "provincia": {
+                                      "type": "string"
+                                    },
+                                    "referenciaDeDomicilio": {
+                                      "type": "string"
+                                    }
+                                  }
+                                },
+                                "email": {
+                                  "type": "string"
+                                },
+                                "idDestinatario": {
+                                  "type": "string"
+                                },
+                                "idInternoCliente": {
+                                  "type": "string"
+                                },
+                                "nombreCompleto": {
+                                  "type": "string"
+                                },
+                                "numeroDeDocumento": {
+                                  "type": "string"
+                                },
+                                "telefono": {
+                                  "type": "string"
+                                },
+                                "tipoDeDocumento": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "distribuidor": {
+                              "type": "object",
+                              "properties": {
+                                "datosAdicionales": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "contenido": {
+                                        "type": "string"
+                                      },
+                                      "meta": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                },
+                                "etiqueta": {
+                                  "type": "string"
+                                },
+                                "nombre": {
+                                  "type": "string"
+                                },
+                                "numeroDeEnvio": {
+                                  "type": "string"
+                                },
+                                "remito": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "estatusOTdeTraza": {
+                              "type": "string"
+                            },
+                            "facturaLegal": {
+                              "type": "string"
+                            },
+                            "fechaDeExpedicionSolicitada": {
+                              "type": "string"
+                            },
+                            "fechaDeFacturacion": {
+                              "type": "string"
+                            },
+                            "fechaEntrega": {
+                              "type": "string"
+                            },
+                            "fechaPedido": {
+                              "type": "string"
+                            },
+                            "franjaHoraria": {
+                              "type": "string"
+                            },
+                            "lineas": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "admitePickingParcial": {
+                                    "type": "string"
+                                  },
+                                  "articulo": {
+                                    "type": "object",
+                                    "properties": {
+                                      "cantidad": {
+                                        "type": "number"
+                                      },
+                                      "codigo": {
+                                        "type": "string"
+                                      },
+                                      "lote": {
+                                        "type": "object",
+                                        "properties": {
+                                          "estado": {
+                                            "type": "string"
+                                          },
+                                          "fechaDeVencimiento": {
+                                            "type": "string"
+                                          },
+                                          "loteDeFabricante": {
+                                            "type": "string"
+                                          },
+                                          "loteSecundario": {
+                                            "type": "string"
+                                          },
+                                          "otrosDatos": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "object",
+                                              "properties": {
+                                                "contenido": {
+                                                  "type": "string"
+                                                },
+                                                "meta": {
+                                                  "type": "string"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "numeroDePedido": {
+                                        "type": "string"
+                                      },
+                                      "propietario": {
+                                        "type": "string"
+                                      },
+                                      "unidadDeMedida": {
+                                        "type": "string"
+                                      },
+                                      "zonaConsumo": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  },
+                                  "contratoWarehouse": {
+                                    "type": "string"
+                                  },
+                                  "estatusOtDeAcondi": {
+                                    "type": "string"
+                                  },
+                                  "numeroDeLinea": {
+                                    "type": "string"
+                                  },
+                                  "tipoDeAcondicionamientoSecundario": {
+                                    "type": "string"
+                                  },
+                                  "tiposDeAcondicionamientoSecundario": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "tipoDeAcondicionamiento": {
+                                          "type": "number"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "linkImpresionRemito": {
+                              "type": "string"
+                            },
+                            "marketPlace": {
+                              "type": "string"
+                            },
+                            "notas": {
+                              "type": "string"
+                            },
+                            "numeroOrdenExterna": {
+                              "type": "string"
+                            },
+                            "ordenCompra": {
+                              "type": "string"
+                            },
+                            "precioValorFC": {
+                              "type": "string"
+                            },
+                            "propietario": {
+                              "type": "string"
+                            },
+                            "remito": {
+                              "type": "string"
+                            },
+                            "tieneGestionCobranza": {
+                              "type": "string"
+                            },
+                            "valorDeclarado": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "response": {
+                      "type": "object",
+                      "properties": {
+                        "idTransaccion": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "detail": {
+                      "type": "string"
+                    },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "field": {
+                            "type": "string"
+                          },
+                          "message": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "detail": {
+                      "type": "string"
+                    },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "field": {
+                            "type": "string"
+                          },
+                          "message": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "detail": {
+                      "type": "string"
+                    },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "field": {
+                            "type": "string"
+                          },
+                          "message": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "detail": {
+                      "type": "string"
+                    },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "field": {
+                            "type": "string"
+                          },
+                          "message": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about the API",
+    "url": "https://example.com/docs"
+  }
+}

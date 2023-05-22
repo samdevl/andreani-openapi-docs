@@ -1,0 +1,248 @@
+{
+    "schemes": [],
+    "swagger": "2.0",
+    "info": {
+        "description": "",
+        "title": "",
+        "contact": {},
+        "version": ""
+    },
+    "host": "",
+    "basePath": "",
+    "paths": {
+        "/almacenes/lotes": {
+            "post": {
+                "summary": "Envía una solicitud de alta de lotes",
+                "description": "Envio de solicitud de alta de lotes",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Endpoints Publicos"
+                ],
+                "parameters": [
+                    {
+                        "description": "Body para la solicitud de alta de lotes",
+                        "name": "Request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Request"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Accepted",
+                        "schema": {
+                            "$ref": "#/definitions/models.Response"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/models.ErrorMessage"
+                        }
+                    },
+                    "503": {
+                        "description": "Service Unavailable",
+                        "schema": {
+                            "$ref": "#/definitions/models.ErrorMessage"
+                        }
+                    }
+                }
+            }
+        },
+        "/almacenes/lotes/{idtransaccion}": {
+            "get": {
+                "description": "Consulta de Solicitud de un alta de lote.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Endpoints Publicos"
+                ],
+                "summary": "Metodo para consulta de solicitud",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "idtransaccion",
+                        "name": "idtransaccion",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Transaccion"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/models.ErrorMessage"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/models.ErrorMessage"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ErrorMessage"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.DetalleLote": {
+            "type": "object",
+            "required": [
+                "articulo",
+                "estadoLote",
+                "loteCaja",
+                "loteSecundario",
+                "propietario",
+                "trazable"
+            ],
+            "properties": {
+                "articulo": {
+                    "type": "string"
+                },
+                "consumoAntesDe": {
+                    "type": "string"
+                },
+                "entregaAntesDe": {
+                    "type": "string"
+                },
+                "estadoDeUbicacionLote": {
+                    "type": "string"
+                },
+                "estadoLote": {
+                    "type": "string"
+                },
+                "fechaFabricacion": {
+                    "type": "string"
+                },
+                "fechaVencimiento": {
+                    "type": "string"
+                },
+                "loteCaja": {
+                    "type": "string"
+                },
+                "loteSecundario": {
+                    "type": "string"
+                },
+                "paquete": {
+                    "type": "string"
+                },
+                "propietario": {
+                    "type": "string"
+                },
+                "trazable": {
+                    "type": "integer"
+                },
+                "vidaUtil": {
+                    "type": "integer"
+                },
+                "zonaConsumo": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Error": {
+            "type": "object",
+            "properties": {
+                "field": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ErrorMessage": {
+            "type": "object",
+            "properties": {
+                "detail": {
+                    "type": "string"
+                },
+                "errors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.Error"
+                    }
+                },
+                "status": {
+                    "type": "integer"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Request": {
+            "type": "object",
+            "required": [
+                "almacen",
+                "detalleDeLote",
+                "instancia"
+            ],
+            "properties": {
+                "almacen": {
+                    "type": "string"
+                },
+                "detalleDeLote": {
+                    "$ref": "#/definitions/models.DetalleLote"
+                },
+                "instancia": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Response": {
+            "type": "object",
+            "properties": {
+                "idTransaccion": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.Transaccion": {
+            "type": "object",
+            "properties": {
+                "estado": {
+                    "type": "string"
+                },
+                "fechaCreacion": {
+                    "type": "string"
+                },
+                "fechaModificacion": {
+                    "type": "string"
+                },
+                "razon": {
+                    "type": "string"
+                },
+                "request": {
+                    "$ref": "#/definitions/models.Request"
+                },
+                "response": {
+                    "$ref": "#/definitions/models.Response"
+                }
+            }
+        }
+    }
+}

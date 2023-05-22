@@ -62,7 +62,7 @@ const config = {
           src: "img/andreanilogo.svg"
         },
         items: [
-          // podría hacer que rediriga a un archivo md, tipo intro.md 
+          // Se podría hacer que rediriga a un archivo md, tipo intro.md 
           // y que desde ahi se puedan desplegar las apis
           //{ to: "/docs/category/petstore-api", label: "API", position: "left" },
           /*{
@@ -163,28 +163,36 @@ const config = {
             }
           },*/
           andreaniAbastecimiento: {
-            specPath: "examples/abastecimiento.yaml",
-            outputDir: "docs/abastecimiento",
+            specPath: "examples/abastecimiento.json",
+            outputDir: "docs/Abastecimiento",
           },
           andreaniAltaLote: {
-            specPath: "examples/altalote.yaml",
-            outputDir: "docs/alta-lote",
+            specPath: "examples/altalote.json",
+            outputDir: "docs/Lotes",
           },
-          andreaniArtículos: {
-            specPath: "examples/articulos.yaml",
-            outputDir: "docs/articulos",
+          andreaniProductos: {
+            specPath: "examples/mantenimientoProductos.json",
+            outputDir: "docs/Mantenimiento-Productos",
           },
           andreaniDatosFac: {
-            specPath: "examples/datosfac.yaml",
-            outputDir: "docs/facturacion",
+            specPath: "examples/facturacion.json",
+            outputDir: "docs/Facturacion",
           },
           andreaniEstadoLote: {
-            specPath: "examples/estado-lote.yaml",
-            outputDir: "docs/estado-lote",
+            specPath: "examples/estadoLote.json",
+            outputDir: "docs/Cambio-Lote",
           },
           andreaniPedidos: {
-            specPath: "examples/pedidos.yaml",
-            outputDir: "docs/pedidos",
+            specPath: "examples/pedidos.json",
+            outputDir: "docs/Pedidos",
+          },
+          andreaniB2c: {
+            specPath: "examples/b2c.json",
+            outputDir: "docs/B2C",
+          },
+          petstore: {
+            specPath: "examples/petstore.json",
+            outputDir: "docs/Petstore",
           },
         }    
       }

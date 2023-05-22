@@ -1,0 +1,745 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Mantenimiento de Productos API",
+    "version": "1.0.0",
+    "description": "API para el mantenimiento de productos en almacenes"
+  },
+  "paths": {
+    "/almacenes/productos": {
+      "post": {
+        "operationId": "altaProductos",
+        "summary": "Alta de Productos",
+        "description": "Endpoint para enviar una solicitud de alta de productos",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "almacen": {
+                    "type": "string"
+                  },
+                  "detalleDeArticulo": {
+                    "type": "object",
+                    "properties": {
+                      "camposLibres": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "contenido": {
+                              "type": "string"
+                            },
+                            "meta": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "claseDeArticulo": {
+                        "type": "string"
+                      },
+                      "codigo": {
+                        "type": "string"
+                      },
+                      "codigoDeVidaUtil": {
+                        "type": "string"
+                      },
+                      "coleccion": {
+                        "type": "string"
+                      },
+                      "color": {
+                        "type": "string"
+                      },
+                      "consumoEnDias": {
+                        "type": "string"
+                      },
+                      "datosLogisticos": {
+                        "type": "object",
+                        "properties": {
+                          "altoCaja": {
+                            "type": "number"
+                          },
+                          "altoPallet": {
+                            "type": "number"
+                          },
+                          "altura": {
+                            "type": "number"
+                          },
+                          "alturaPack": {
+                            "type": "number"
+                          },
+                          "alturaUnidad": {
+                            "type": "number"
+                          },
+                          "anchoCaja": {
+                            "type": "number"
+                          },
+                          "anchoPack": {
+                            "type": "number"
+                          },
+                          "anchoPallet": {
+                            "type": "number"
+                          },
+                          "anchoUnidad": {
+                            "type": "number"
+                          },
+                          "anchura": {
+                            "type": "number"
+                          },
+                          "cajasPorNivel": {
+                            "type": "number"
+                          },
+                          "cantidadPorCaja": {
+                            "type": "number"
+                          },
+                          "cantidadPorPallet": {
+                            "type": "number"
+                          },
+                          "cantidadPorPaquete": {
+                            "type": "number"
+                          },
+                          "largoCaja": {
+                            "type": "number"
+                          },
+                          "largoPack": {
+                            "type": "number"
+                          },
+                          "largoPallet": {
+                            "type": "number"
+                          },
+                          "largoUnidad": {
+                            "type": "number"
+                          },
+                          "longitud": {
+                            "type": "number"
+                          },
+                          "nivelesPorPallet": {
+                            "type": "number"
+                          },
+                          "pesoBruto": {
+                            "type": "number"
+                          },
+                          "pesoCaja": {
+                            "type": "number"
+                          },
+                          "pesoNeto": {
+                            "type": "number"
+                          },
+                          "pesoPack": {
+                            "type": "number"
+                          },
+                          "pesoPallet": {
+                            "type": "number"
+                          },
+                          "pesoTara": {
+                            "type": "number"
+                          },
+                          "volumen": {
+                            "type": "number"
+                          },
+                          "volumenCubico": {
+                            "type": "number"
+                          }
+                        }
+                      },
+                      "descripcion": {
+                        "type": "string"
+                      },
+                      "ean": {
+                        "type": "string"
+                      },
+                      "esNumeroDeSerieDeEntradaUnico": {
+                        "type": "string"
+                      },
+                      "esNumeroDeSerieSalidaUnico": {
+                        "type": "string"
+                      },
+                      "estilo": {
+                        "type": "string"
+                      },
+                      "finDeTemporada": {
+                        "type": "string"
+                      },
+                      "grupos": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "contenido": {
+                              "type": "string"
+                            },
+                            "meta": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "indicadorDeVidaUtil": {
+                        "type": "string"
+                      },
+                      "inicioDeTemporada": {
+                        "type": "string"
+                      },
+                      "instruccionesDePreparacion": {
+                        "type": "string"
+                      },
+                      "notas": {
+                        "type": "string"
+                      },
+                      "otrosDatos": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "contenido": {
+                              "type": "string"
+                            },
+                            "meta": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "paisDeOrigen": {
+                        "type": "string"
+                      },
+                      "pavu": {
+                        "type": "string"
+                      },
+                      "propietario": {
+                        "type": "string"
+                      },
+                      "psicotropico": {
+                        "type": "string"
+                      },
+                      "rubro": {
+                        "type": "string"
+                      },
+                      "serializado": {
+                        "type": "string"
+                      },
+                      "talle": {
+                        "type": "string"
+                      },
+                      "tema": {
+                        "type": "string"
+                      },
+                      "temperatura": {
+                        "type": "string"
+                      },
+                      "temporada": {
+                        "type": "string"
+                      },
+                      "tipoEan": {
+                        "type": "string"
+                      },
+                      "vencimientoEnDias": {
+                        "type": "number"
+                      },
+                      "vidaUtilEntradaEnDias": {
+                        "type": "string"
+                      },
+                      "vidaUtilSalidaEnDias": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "instancia": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "idTransaccion": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "detail": {
+                      "type": "string"
+                    },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "field": {
+                            "type": "string"
+                          },
+                          "message": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "status": {
+                      "type": "number"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "detail": {
+                      "type": "string"
+                    },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "field": {
+                            "type": "string"
+                          },
+                          "message": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "status": {
+                      "type": "number"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }, 
+    "/almacenes/productos/{idtransaccion}": {
+      "get": {
+        "tags": [
+          "Productos"
+        ],
+        "operationId": "obtenerSolicitud",
+        "summary": "Obtener información de una solicitud",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "idtransaccion",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "estado": {
+                      "type": "string"
+                    },
+                    "fechaCreacion": {
+                      "type": "string"
+                    },
+                    "fechaModificacion": {
+                      "type": "string"
+                    },
+                    "razon": {
+                      "type": "string"
+                    },
+                    "request": {
+                      "$ref": "#/components/schemas/ProductRequest"
+                    },
+                    "response": {
+                      "type": "object",
+                      "properties": {
+                        "idTransaccion": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "detail": {
+                      "type": "string"
+                    },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "field": {
+                            "type": "string"
+                          },
+                          "message": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "status": {
+                      "type": "number"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "detail": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "number"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "detail": {
+                      "type": "string"
+                    },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "field": {
+                            "type": "string"
+                          },
+                          "message": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "status": {
+                      "type": "number"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ProductRequest": {
+        "type": "object",
+        "properties": {
+          "almacen": {
+            "type": "string"
+          },
+          "detalleDeArticulo": {
+            "type": "object",
+            "properties": {
+              "camposLibres": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "contenido": {
+                      "type": "string"
+                    },
+                    "meta": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "claseDeArticulo": {
+                "type": "string"
+              },
+              "codigo": {
+                "type": "string"
+              },
+              "codigoDeVidaUtil": {
+                "type": "string"
+              },
+              "coleccion": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              },
+              "consumoEnDias": {
+                "type": "string"
+              },
+              "datosLogisticos": {
+                "type": "object",
+                "properties": {
+                  "altoCaja": {
+                    "type": "number"
+                  },
+                  "altoPallet": {
+                    "type": "number"
+                  },
+                  "altura": {
+                    "type": "number"
+                  },
+                  "alturaPack": {
+                    "type": "number"
+                  },
+                  "alturaUnidad": {
+                    "type": "number"
+                  },
+                  "anchoCaja": {
+                    "type": "number"
+                  },
+                  "anchoPack": {
+                    "type": "number"
+                  },
+                  "anchoPallet": {
+                    "type": "number"
+                  },
+                  "anchoUnidad": {
+                    "type": "number"
+                  },
+                  "anchura": {
+                    "type": "number"
+                  },
+                  "cajasPorNivel": {
+                    "type": "number"
+                  },
+                  "cantidadPorCaja": {
+                    "type": "number"
+                  },
+                  "cantidadPorPallet": {
+                    "type": "number"
+                  },
+                  "cantidadPorPaquete": {
+                    "type": "number"
+                  },
+                  "largoCaja": {
+                    "type": "number"
+                  },
+                  "largoPack": {
+                    "type": "number"
+                  },
+                  "largoPallet": {
+                    "type": "number"
+                  },
+                  "largoUnidad": {
+                    "type": "number"
+                  },
+                  "largoYAltoPack": {
+                    "type": "number"
+                  },
+                  "peso": {
+                    "type": "number"
+                  },
+                  "pesoBruto": {
+                    "type": "number"
+                  },
+                  "pesoPack": {
+                    "type": "number"
+                  },
+                  "pesoPallet": {
+                    "type": "number"
+                  },
+                  "pesoTara": {
+                    "type": "number"
+                  },
+                  "volumen": {
+                    "type": "number"
+                  },
+                  "volumenCubico": {
+                    "type": "number"
+                  }
+                }
+              },
+              "descripcion": {
+                "type": "string"
+              },
+              "ean": {
+                "type": "string"
+              },
+              "esNumeroDeSerieDeEntradaUnico": {
+                "type": "string"
+              },
+              "esNumeroDeSerieSalidaUnico": {
+                "type": "string"
+              },
+              "estilo": {
+                "type": "string"
+              },
+              "finDeTemporada": {
+                "type": "string"
+              },
+              "grupos": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "contenido": {
+                      "type": "string"
+                    },
+                    "meta": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "indicadorDeVidaUtil": {
+                "type": "string"
+              },
+              "inicioDeTemporada": {
+                "type": "string"
+              },
+              "instruccionesDePreparacion": {
+                "type": "string"
+              },
+              "notas": {
+                "type": "string"
+              },
+              "otrosDatos": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "contenido": {
+                      "type": "string"
+                    },
+                    "meta": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "paisDeOrigen": {
+                "type": "string"
+              },
+              "pavu": {
+                "type": "string"
+              },
+              "propietario": {
+                "type": "string"
+              },
+              "psicotropico": {
+                "type": "string"
+              },
+              "rubro": {
+                "type": "string"
+              },
+              "serializado": {
+                "type": "string"
+              },
+              "talle": {
+                "type": "string"
+              },
+              "tema": {
+                "type": "string"
+              },
+              "temperatura": {
+                "type": "string"
+              },
+              "temporada": {
+                "type": "string"
+              },
+              "tipoEan": {
+                "type": "string"
+              },
+              "vencimientoEnDias": {
+                "type": "number"
+              },
+              "vidaUtilEntradaEnDias": {
+                "type": "string"
+              },
+              "vidaUtilSalidaEnDias": {
+                "type": "string"
+              }
+            }
+          },
+          "instancia": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

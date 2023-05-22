@@ -6,43 +6,21 @@ tags:
 
 # Introducción
 
+![This is a alt text.](/img/andreanilogo.svg "This is a sample image.")
+
 Bienvenido a **Andreani site for developers**.
 
 ## Cómo empezar
 
 Sentite cómodo navegando por nuestro sidebar menú donde podrás encontrar las APIS dividias por **integración**
 
-**Hacé click en el api que tengas que integrarte y simulá una prueba**
+Porseguridad,debes enviar el access token por header cada vez que realices llamadas a las APIS,recuerda usar la API de Login con  tus credenciales para obtenerlo. El token tiene una vigencia de 24hs. Estas son las url que tenes que utilizar. Recordá adjuntar después de la última barra el endpoint correspondiente:
 
-## Images
+URL QA https://apisqa.andreani.com/v2/
 
-![This is a alt text.](/img/andreanilogo.svg "This is a sample image.")
+URL PROD https://apisqa.andreani.com/v2/ 
 
-## Links
 
-You may be using [Markdown Live Preview](https://markdownlivepreview.com/).
 
-## Blockquotes
 
-> Markdown is a lightweight markup language with plain-text-formatting syntax, created in 2004 by John Gruber with Aaron Swartz.
->
->> Markdown is often used to format readme files, for writing messages in online discussion forums, and to create rich text using a plain text editor.
 
-## Tables
-
-| Left columns  | Right columns |
-| ------------- |:-------------:|
-| left foo      | right foo     |
-| left bar      | right bar     |
-| left baz      | right baz     |
-
-## Blocks of code
-
-```
-let message = 'Hello world';
-alert(message);
-```
-
-## Inline code
-
-This web site is using `markedjs/marked`.

@@ -1,0 +1,257 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "description": "API realizada para cambiar el estado de un lote determinado",
+      "title": "Api Cambio Estado de Lote",
+      "termsOfService": "http://swagger.io/terms/",
+      "contact": {
+        "name": "API Support",
+        "url": "http://www.swagger.io/support",
+        "email": "support@swagger.io"
+      },
+      "license": {
+        "name": "Apache 2.0",
+        "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+      },
+      "version": "2.0"
+    },
+    "servers": [
+      {
+        "url": "https://api-cambio-estado-lote-v2-equipo-almacenes-test.apps.ocptest.andreani.com.ar/api/v2"
+      }
+    ],
+    "paths": {
+      "/almacenes/lotes/cambioestadodelote": {
+        "post": {
+        "operationId": "enviarSolicitudCambioEstadoLote",
+          "description": "Envio de solicitud de cambio de estado de lote",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CambioEstadoRequest"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResponseCambioEstadoV2"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessage"
+                  }
+                }
+              }
+            },
+            "503": {
+              "description": "Service Unavailable",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessage"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/almacenes/lotes/cambioestadodelote/{idtransaccion}": {
+        "get": {
+          "operationId": "consultarSolicitudCambioEstadoLote",
+          "description": "Busqueda de una solicitud de cambio de estado de lote",
+          "parameters": [
+            {
+              "name": "idtransaccion",
+              "in": "path",
+              "description": "idtransaccion",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Transaccion"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessage"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessage"
+                  }
+                }
+              }
+            },
+            "503": {
+              "description": "Service Unavailable",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessage"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "CambioEstadoDeLote": {
+          "type": "object",
+          "required": [
+            "articulo",
+            "estadoLote",
+            "loteCaja",
+            "loteSecundario",
+            "propietario"
+          ],
+          "properties": {
+            "articulo": {
+              "type": "string",
+              "maxLength": 50
+            },
+            "estadoLote": {
+              "type": "string",
+              "maxLength": 50
+            },
+            "fechaVencimiento": {
+              "type": "string"
+            },
+            "loteCaja": {
+              "type": "string",
+              "maxLength": 50
+            },
+            "loteSecundario": {
+              "type": "string",
+              "maxLength": 50
+            },
+            "propietario": {
+              "type": "string",
+              "maxLength": 15
+            }
+          }
+        },
+        "CambioEstadoRequest": {
+          "type": "object",
+          "required": [
+            "almacen",
+            "cambioEstadoDeLote",
+            "instancia"
+          ],
+          "properties": {
+            "almacen": {
+              "type": "string"
+            },
+            "cambioEstadoDeLote": {
+              "$ref": "#/components/schemas/CambioEstadoDeLote"
+            },
+            "instancia": {
+              "type": "string",
+              "maxLength": 30
+            }
+          }
+        },
+        "Error": {
+          "type": "object",
+          "properties": {
+            "field": {
+              "type": "string"
+            },
+            "message": {
+              "type": "string"
+            }
+          }
+        },
+        "ErrorMessage": {
+          "type": "object",
+          "properties": {
+            "detail": {
+              "type": "string"
+            },
+            "errors": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Error"
+              }
+            },
+            "status": {
+              "type": "integer"
+            },
+            "title": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          }
+        },
+        "ResponseCambioEstadoV2": {
+          "type": "object",
+          "properties": {
+            "idTransaccion": {
+              "type": "integer"
+            }
+          }
+        },
+        "Transaccion": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "type": "string"
+            },
+            "fechaCreacion": {
+              "type": "string"
+            },
+            "fechaModificacion": {
+              "type": "string"
+            },
+            "razon": {
+              "type": "string"
+            },
+            "request": {
+              "$ref": "#/components/schemas/CambioEstadoRequest"
+            },
+            "response": {
+              "$ref": "#/components/schemas/ResponseCambioEstadoV2"
+            }
+          }
+        }
+      }
+    }
+  }
+  

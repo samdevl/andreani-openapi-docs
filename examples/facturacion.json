@@ -1,0 +1,262 @@
+{
+    "schemes": [],
+    "swagger": "2.0",
+    "info": {
+        "description": "",
+        "title": "",
+        "contact": {},
+        "version": ""
+    },
+    "host": "",
+    "basePath": "",
+    "paths": {
+        "/facturacion": {
+            "post": {
+                "description": "Servico generacion del evento de Datos Facturacion V2 solicitada para el consumo de SCE",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Datos Facturacion V2"
+                ],
+                "summary": "Datos Facturacion V2",
+                "parameters": [
+                    {
+                        "description": "Datos necesario para solicitar una actualizacion de los datos de facturacion V2",
+                        "name": "Request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Request"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Accepted",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseDatosFacturacionV2"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/models.ErrorMessage"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ErrorMessage"
+                        }
+                    }
+                }
+            }
+        },
+        "/facturacion/:idtransaccion": {
+            "get": {
+                "description": "Servico de consulta del estado de Datos facturacion Solicitada V2",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Datosfacturacion V2"
+                ],
+                "summary": "Transaccion de Datosfacturacion V2",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Id Transacción",
+                        "name": "idTransaccion",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Accepted",
+                        "schema": {
+                            "$ref": "#/definitions/models.Transaccion"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/models.ErrorMessage"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/models.ErrorMessage"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ErrorMessage"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.Error": {
+            "type": "object",
+            "properties": {
+                "field": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ErrorMessage": {
+            "type": "object",
+            "properties": {
+                "detail": {
+                    "type": "string"
+                },
+                "errors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.Error"
+                    }
+                },
+                "status": {
+                    "type": "integer"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Metadato": {
+            "type": "object",
+            "properties": {
+                "contenido": {
+                    "type": "string"
+                },
+                "meta": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Pedido": {
+            "type": "object",
+            "required": [
+                "numeroOrdenExterna",
+                "propietario"
+            ],
+            "properties": {
+                "archivoImpresionRemito": {
+                    "type": "string"
+                },
+                "cot": {
+                    "type": "string"
+                },
+                "datosAdicionales": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.Metadato"
+                    }
+                },
+                "facturaLegal": {
+                    "type": "string"
+                },
+                "fechaDeFacturacion": {
+                    "type": "string"
+                },
+                "fechaEntrega": {
+                    "type": "string"
+                },
+                "linkImpresionRemito": {
+                    "type": "string"
+                },
+                "numeroOrdenExterna": {
+                    "type": "string"
+                },
+                "precioValorFc": {
+                    "type": "string"
+                },
+                "propietario": {
+                    "type": "string"
+                },
+                "remito": {
+                    "type": "string"
+                },
+                "tieneGestionCobranza": {
+                    "type": "string"
+                },
+                "valorDeclarado": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Request": {
+            "type": "object",
+            "required": [
+                "almacen",
+                "contratoDistribucion",
+                "instancia",
+                "pedido"
+            ],
+            "properties": {
+                "almacen": {
+                    "type": "string"
+                },
+                "contratoDistribucion": {
+                    "type": "string"
+                },
+                "instancia": {
+                    "type": "string"
+                },
+                "pedido": {
+                    "$ref": "#/definitions/models.Pedido"
+                }
+            }
+        },
+        "models.ResponseDatosFacturacionV2": {
+            "type": "object",
+            "properties": {
+                "idTransaccion": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.Transaccion": {
+            "type": "object",
+            "properties": {
+                "estado": {
+                    "type": "string"
+                },
+                "fechaCreacion": {
+                    "type": "string"
+                },
+                "fechaModificacion": {
+                    "type": "string"
+                },
+                "razon": {
+                    "type": "string"
+                },
+                "request": {
+                    "$ref": "#/definitions/models.Request"
+                },
+                "response": {
+                    "$ref": "#/definitions/models.ResponseDatosFacturacionV2"
+                }
+            }
+        }
+    }
+}
