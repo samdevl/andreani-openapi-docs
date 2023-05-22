@@ -16,8 +16,6 @@
         },
         "version": "1.0"
     },
-    "host": "",
-    "basePath": "/api/v2",
     "paths": {
         "/abastecimiento": {
             "post": {
