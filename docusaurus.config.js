@@ -190,6 +190,10 @@ const config = {
             specPath: "examples/b2c.json",
             outputDir: "docs/B2C",
           },
+          andreaniPrueba: {
+            specPath: "examples/prueba.json",
+            outputDir: "docs/Prueba-Net",
+          },
           petstore: {
             specPath: "examples/petstore.json",
             outputDir: "docs/Petstore",
