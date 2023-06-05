@@ -1,0 +1,3546 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "Prueba Andreani-Sandbox Document API's",
+      "description": "Prueba api \r\n\r\n � Copyright 2023. All rights reserved.",
+      "version": "v1"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:5020"
+      }
+    ],
+    "paths": {
+      "/abastecimiento": {
+        "post": {
+          "tags": [
+            "Abastecimiento"
+          ],
+          "summary": "Abastecimiento Solicitada",
+          "description": "Servico generación del evento de Orden de Abastecimiento solicitada para el consumo de SCE",
+          "requestBody": {
+            "description": "Datos necesario para solicitar una Orden de Abastecimiento",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AbastecimientoRequest"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AbastecimientoRequest"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AbastecimientoRequest"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResponseAbastecimiento"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResponseAbastecimiento"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResponseAbastecimiento"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAbastecimiento"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAbastecimiento"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAbastecimiento"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAbastecimiento"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAbastecimiento"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAbastecimiento"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAbastecimiento"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAbastecimiento"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAbastecimiento"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/abastecimiento/{id}": {
+        "get": {
+          "tags": [
+            "Abastecimiento"
+          ],
+          "summary": "Transacción de Abastecimiento",
+          "description": "Servico de consulta del estado de la Orden de Compra Solicitada",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "Id Transacción",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "202": {
+              "description": "Accepted",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AbastecimientoResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AbastecimientoResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AbastecimientoResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAbastecimiento"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAbastecimiento"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAbastecimiento"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAbastecimiento"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAbastecimiento"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAbastecimiento"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAbastecimiento"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAbastecimiento"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAbastecimiento"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAbastecimiento"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAbastecimiento"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAbastecimiento"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/almacenes/lotes": {
+        "post": {
+          "tags": [
+            "AltaLote"
+          ],
+          "summary": "Envía una solicitud de alta de lote",
+          "requestBody": {
+            "description": "Lote que se añadirá",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoteRequest"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoteRequest"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoteRequest"
+                }
+              }
+            }
+          },
+          "responses": {
+            "202": {
+              "description": "Accepted",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResponseAltaLote"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResponseAltaLote"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResponseAltaLote"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAltaLote"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAltaLote"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAltaLote"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAltaLote"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAltaLote"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAltaLote"
+                  }
+                }
+              }
+            },
+            "503": {
+              "description": "Service Unavailable",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAltaLote"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAltaLote"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAltaLote"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/almacenes/lotes/{id}": {
+        "get": {
+          "tags": [
+            "AltaLote"
+          ],
+          "summary": "Consulta de Solicitud de un alta de lote",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/LoteResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/LoteResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/LoteResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAltaLote"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAltaLote"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAltaLote"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAltaLote"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAltaLote"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAltaLote"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAltaLote"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAltaLote"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAltaLote"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAltaLote"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAltaLote"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageAltaLote"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/almacenes/productos": {
+        "post": {
+          "tags": [
+            "Articulo"
+          ],
+          "summary": "Envio de solicitud de alta de productos",
+          "requestBody": {
+            "description": "Body para la solicitud de alta de producto",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArticuloRequest"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArticuloRequest"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArticuloRequest"
+                }
+              }
+            }
+          },
+          "responses": {
+            "202": {
+              "description": "Accepted",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResponseArticulo"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResponseArticulo"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResponseArticulo"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageArticulo"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageArticulo"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageArticulo"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageArticulo"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageArticulo"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageArticulo"
+                  }
+                }
+              }
+            },
+            "503": {
+              "description": "Service Unavailable",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageArticulo"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageArticulo"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageArticulo"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/almacenes/productos/{id}": {
+        "get": {
+          "tags": [
+            "Articulo"
+          ],
+          "summary": "Metodo para consulta de solicitud",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ArticuloResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ArticuloResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ArticuloResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageArticulo"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageArticulo"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageArticulo"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageArticulo"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageArticulo"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageArticulo"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageArticulo"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageArticulo"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageArticulo"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageArticulo"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageArticulo"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageArticulo"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/almacenes/lotes/cambioestadolote": {
+        "post": {
+          "tags": [
+            "CambioEstadoLote"
+          ],
+          "summary": "Envio de solicitud de cambio de estado de lote",
+          "requestBody": {
+            "description": "Body para la solicitud de cambio de estado de lote",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CambioEstadoLoteRequest"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CambioEstadoLoteRequest"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CambioEstadoLoteRequest"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResponseCambioEstadoLote"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResponseCambioEstadoLote"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResponseCambioEstadoLote"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageCambioEstadoLote"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageCambioEstadoLote"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageCambioEstadoLote"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageCambioEstadoLote"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageCambioEstadoLote"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageCambioEstadoLote"
+                  }
+                }
+              }
+            },
+            "503": {
+              "description": "Service Unavailable",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageCambioEstadoLote"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageCambioEstadoLote"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageCambioEstadoLote"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/almacenes/lotes/cambioestadolote/{id}": {
+        "get": {
+          "tags": [
+            "CambioEstadoLote"
+          ],
+          "summary": "Busqueda de una solicitud de cambio de estado de lote",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "Id de transacción",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/CambioEstadoLoteResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/CambioEstadoLoteResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/CambioEstadoLoteResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageCambioEstadoLote"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageCambioEstadoLote"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageCambioEstadoLote"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageCambioEstadoLote"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageCambioEstadoLote"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageCambioEstadoLote"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageCambioEstadoLote"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageCambioEstadoLote"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageCambioEstadoLote"
+                  }
+                }
+              }
+            },
+            "503": {
+              "description": "Service Unavailable",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageCambioEstadoLote"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageCambioEstadoLote"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageCambioEstadoLote"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/facturacion": {
+        "post": {
+          "tags": [
+            "Facturacion"
+          ],
+          "summary": "Datos de facturación",
+          "requestBody": {
+            "description": "Servicio generacion del evento de Datos Facturacion solicitada para el consumo de SCE",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FacturacionRequest"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FacturacionRequest"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FacturacionRequest"
+                }
+              }
+            }
+          },
+          "responses": {
+            "202": {
+              "description": "Accepted",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResponseFacturacion"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResponseFacturacion"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResponseFacturacion"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageFacturacion"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageFacturacion"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageFacturacion"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageFacturacion"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageFacturacion"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageFacturacion"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageFacturacion"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageFacturacion"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageFacturacion"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/facturacion/{id}": {
+        "get": {
+          "tags": [
+            "Facturacion"
+          ],
+          "summary": "Transacción de Datos de Facturación",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "202": {
+              "description": "Accepted",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/FacturacionResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/FacturacionResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/FacturacionResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageFacturacion"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageFacturacion"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageFacturacion"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageFacturacion"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageFacturacion"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageFacturacion"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageFacturacion"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageFacturacion"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageFacturacion"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageFacturacion"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageFacturacion"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessageFacturacion"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/almacenes/pedidos": {
+        "post": {
+          "tags": [
+            "Pedidos"
+          ],
+          "summary": "Generar una solicitud de alta de pedido",
+          "requestBody": {
+            "description": "Pedido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PedidoRequest"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PedidoRequest"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PedidoRequest"
+                }
+              }
+            }
+          },
+          "responses": {
+            "202": {
+              "description": "Accepted",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResponsePedidos"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResponsePedidos"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ResponsePedidos"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessagePedidos"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessagePedidos"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessagePedidos"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessagePedidos"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessagePedidos"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessagePedidos"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessagePedidos"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessagePedidos"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessagePedidos"
+                  }
+                }
+              }
+            },
+            "503": {
+              "description": "Service Unavailable",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessagePedidos"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessagePedidos"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessagePedidos"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/almacenes/pedidos/{id}": {
+        "get": {
+          "tags": [
+            "Pedidos"
+          ],
+          "summary": "Consulta una solicitud de alta pedido",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PedidoResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PedidoResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PedidoResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessagePedidos"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessagePedidos"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessagePedidos"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessagePedidos"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessagePedidos"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessagePedidos"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessagePedidos"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessagePedidos"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessagePedidos"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessagePedidos"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessagePedidos"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorMessagePedidos"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "Abastecimiento": {
+          "required": [
+            "lineas",
+            "numeroOrdenExterna",
+            "origen",
+            "propietario",
+            "transportista"
+          ],
+          "type": "object",
+          "properties": {
+            "datosAdicionales": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/DatosAdicionalesAbastecimiento"
+              },
+              "nullable": true
+            },
+            "fechaDeRecepcionEsperada": {
+              "type": "string",
+              "nullable": true
+            },
+            "fechaOrdenExterna": {
+              "type": "string",
+              "nullable": true
+            },
+            "lineas": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/LineaAbastecimiento"
+              }
+            },
+            "numeroOrdenExterna": {
+              "maxLength": 55,
+              "minLength": 1,
+              "type": "string"
+            },
+            "origen": {
+              "$ref": "#/components/schemas/Origen"
+            },
+            "propietario": {
+              "maxLength": 50,
+              "minLength": 1,
+              "type": "string"
+            },
+            "transportista": {
+              "$ref": "#/components/schemas/Transportista"
+            }
+          },
+          "additionalProperties": false
+        },
+        "AbastecimientoRequest": {
+          "required": [
+            "abastecimiento",
+            "almacen",
+            "contratoDistribucion",
+            "instancia"
+          ],
+          "type": "object",
+          "properties": {
+            "abastecimiento": {
+              "$ref": "#/components/schemas/Abastecimiento"
+            },
+            "almacen": {
+              "maxLength": 30,
+              "minLength": 1,
+              "type": "string"
+            },
+            "contratoDistribucion": {
+              "maxLength": 20,
+              "minLength": 1,
+              "type": "string"
+            },
+            "contratoWarehouse": {
+              "maxLength": 20,
+              "type": "string",
+              "nullable": true
+            },
+            "instancia": {
+              "maxLength": 30,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "AbastecimientoResponse": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "type": "string",
+              "nullable": true
+            },
+            "fechaCreacion": {
+              "type": "string",
+              "nullable": true
+            },
+            "fechaModificacion": {
+              "type": "string",
+              "nullable": true
+            },
+            "razon": {
+              "type": "string",
+              "nullable": true
+            },
+            "request": {
+              "$ref": "#/components/schemas/RequestAbastecimiento"
+            },
+            "response": {
+              "$ref": "#/components/schemas/ResponseAbastecimiento"
+            }
+          },
+          "additionalProperties": false
+        },
+        "ArchivoRemito": {
+          "type": "object",
+          "properties": {
+            "archivosRemito": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "Articulo": {
+          "required": [
+            "cantidad",
+            "codigo",
+            "lote",
+            "propietario",
+            "unidadDeMedida"
+          ],
+          "type": "object",
+          "properties": {
+            "cantidad": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "codigo": {
+              "maxLength": 55,
+              "minLength": 1,
+              "type": "string"
+            },
+            "lote": {
+              "$ref": "#/components/schemas/Lote"
+            },
+            "numeroDePedido": {
+              "maxLength": 50,
+              "type": "string",
+              "nullable": true
+            },
+            "propietario": {
+              "maxLength": 12,
+              "minLength": 1,
+              "type": "string"
+            },
+            "unidadDeMedida": {
+              "maxLength": 10,
+              "minLength": 1,
+              "type": "string"
+            },
+            "zonaConsumo": {
+              "maxLength": 55,
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "ArticuloAbastecimiento": {
+          "required": [
+            "codigo",
+            "lote"
+          ],
+          "type": "object",
+          "properties": {
+            "codigo": {
+              "maxLength": 50,
+              "minLength": 1,
+              "type": "string"
+            },
+            "datosAdicionales": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/DatosAdicionalesAbastecimiento"
+              },
+              "nullable": true
+            },
+            "lote": {
+              "$ref": "#/components/schemas/LoteAbastecimiento"
+            }
+          },
+          "additionalProperties": false
+        },
+        "ArticuloRequest": {
+          "required": [
+            "almacen",
+            "instancia"
+          ],
+          "type": "object",
+          "properties": {
+            "almacen": {
+              "maxLength": 30,
+              "minLength": 1,
+              "type": "string"
+            },
+            "detalleDeArticulo": {
+              "$ref": "#/components/schemas/DetalleDeArticulo"
+            },
+            "instancia": {
+              "maxLength": 30,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "ArticuloResponse": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "type": "string",
+              "nullable": true
+            },
+            "fechaCreacion": {
+              "type": "string",
+              "nullable": true
+            },
+            "fechaModificacion": {
+              "type": "string",
+              "nullable": true
+            },
+            "razon": {
+              "type": "string",
+              "nullable": true
+            },
+            "request": {
+              "$ref": "#/components/schemas/ArticuloRequest"
+            },
+            "response": {
+              "$ref": "#/components/schemas/ResponseArticulo"
+            }
+          },
+          "additionalProperties": false
+        },
+        "CambioEstadoDeLote": {
+          "required": [
+            "articulo",
+            "estadoLote",
+            "loteCaja",
+            "loteSecundario",
+            "propietario"
+          ],
+          "type": "object",
+          "properties": {
+            "articulo": {
+              "maxLength": 50,
+              "minLength": 1,
+              "type": "string"
+            },
+            "estadoLote": {
+              "maxLength": 50,
+              "minLength": 1,
+              "type": "string"
+            },
+            "fechaVencimiento": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "loteCaja": {
+              "maxLength": 50,
+              "minLength": 1,
+              "type": "string"
+            },
+            "loteSecundario": {
+              "maxLength": 50,
+              "minLength": 1,
+              "type": "string"
+            },
+            "propietario": {
+              "maxLength": 15,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "CambioEstadoLoteRequest": {
+          "required": [
+            "almacen",
+            "cambioEstadoDeLote",
+            "instancia"
+          ],
+          "type": "object",
+          "properties": {
+            "almacen": {
+              "maxLength": 30,
+              "minLength": 1,
+              "type": "string"
+            },
+            "cambioEstadoDeLote": {
+              "$ref": "#/components/schemas/CambioEstadoDeLote"
+            },
+            "instancia": {
+              "maxLength": 30,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "CambioEstadoLoteResponse": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "type": "string",
+              "nullable": true
+            },
+            "fechaCreacion": {
+              "type": "string",
+              "nullable": true
+            },
+            "fechaModificacion": {
+              "type": "string",
+              "nullable": true
+            },
+            "razon": {
+              "type": "string",
+              "nullable": true
+            },
+            "request": {
+              "$ref": "#/components/schemas/CambioEstadoLoteRequest"
+            },
+            "response": {
+              "$ref": "#/components/schemas/ResponseCambioEstadoLote"
+            }
+          },
+          "additionalProperties": false
+        },
+        "CamposLibresArticulo": {
+          "type": "object",
+          "properties": {
+            "contenido": {
+              "type": "string",
+              "nullable": true
+            },
+            "meta": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "DatosAdicionalesAbastecimiento": {
+          "type": "object",
+          "properties": {
+            "contenido": {
+              "type": "string",
+              "nullable": true
+            },
+            "meta": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "DatosAdicionalesFacturacion": {
+          "type": "object",
+          "properties": {
+            "contenido": {
+              "type": "string",
+              "nullable": true
+            },
+            "meta": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "DatosAdicionalesPedidos": {
+          "type": "object",
+          "properties": {
+            "contenido": {
+              "type": "string",
+              "nullable": true
+            },
+            "meta": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "DatosLogisticosArticulo": {
+          "type": "object",
+          "properties": {
+            "altoCaja": {
+              "type": "number",
+              "format": "float"
+            },
+            "altoPallet": {
+              "type": "number",
+              "format": "float"
+            },
+            "altura": {
+              "type": "number",
+              "format": "float"
+            },
+            "alturaPack": {
+              "type": "number",
+              "format": "float"
+            },
+            "alturaUnidad": {
+              "type": "number",
+              "format": "float"
+            },
+            "anchoCaja": {
+              "type": "number",
+              "format": "float"
+            },
+            "anchoPack": {
+              "type": "number",
+              "format": "float"
+            },
+            "anchoPallet": {
+              "type": "number",
+              "format": "float"
+            },
+            "anchoUnidad": {
+              "type": "number",
+              "format": "float"
+            },
+            "anchura": {
+              "type": "number",
+              "format": "float"
+            },
+            "cajasPorNivel": {
+              "type": "number",
+              "format": "double"
+            },
+            "cantidadPorCaja": {
+              "type": "number",
+              "format": "float"
+            },
+            "cantidadPorPallet": {
+              "type": "number",
+              "format": "float"
+            },
+            "cantidadPorPaquete": {
+              "type": "number",
+              "format": "float"
+            },
+            "largoCaja": {
+              "type": "number",
+              "format": "float"
+            },
+            "largoPack": {
+              "type": "number",
+              "format": "float"
+            },
+            "largoPallet": {
+              "type": "number",
+              "format": "float"
+            },
+            "largoUnidad": {
+              "type": "number",
+              "format": "float"
+            },
+            "longitud": {
+              "type": "number",
+              "format": "float"
+            },
+            "nivelesPorPallet": {
+              "type": "number",
+              "format": "double"
+            },
+            "pesoBruto": {
+              "type": "number",
+              "format": "double"
+            },
+            "pesoCaja": {
+              "type": "number",
+              "format": "float"
+            },
+            "pesoNeto": {
+              "type": "number",
+              "format": "double"
+            },
+            "pesoPack": {
+              "type": "number",
+              "format": "float"
+            },
+            "pesoPallet": {
+              "type": "number",
+              "format": "float"
+            },
+            "pesoTara": {
+              "type": "number",
+              "format": "double"
+            },
+            "volumen": {
+              "type": "number",
+              "format": "double"
+            },
+            "volumenCubico": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          "additionalProperties": false
+        },
+        "DatosPersonales": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "maxLength": 128,
+              "type": "string",
+              "nullable": true
+            },
+            "nombreCompleto": {
+              "maxLength": 128,
+              "type": "string",
+              "nullable": true
+            },
+            "numeroDeDocumento": {
+              "maxLength": 128,
+              "type": "string",
+              "nullable": true
+            },
+            "tipoDeDocumento": {
+              "maxLength": 128,
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "Destinatario": {
+          "required": [
+            "direccion",
+            "idDestinatario"
+          ],
+          "type": "object",
+          "properties": {
+            "contacto": {
+              "maxLength": 30,
+              "type": "string",
+              "nullable": true
+            },
+            "direccion": {
+              "$ref": "#/components/schemas/Direccion"
+            },
+            "email": {
+              "maxLength": 55,
+              "type": "string",
+              "nullable": true
+            },
+            "idDestinatario": {
+              "maxLength": 15,
+              "minLength": 1,
+              "type": "string"
+            },
+            "idInternoCliente": {
+              "maxLength": 15,
+              "type": "string",
+              "nullable": true
+            },
+            "nombreCompleto": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "numeroDeDocumento": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "telefono": {
+              "maxLength": 18,
+              "type": "string",
+              "nullable": true
+            },
+            "tipoDeDocumento": {
+              "maxLength": 18,
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "DetalleDeArticulo": {
+          "required": [
+            "codigo",
+            "datosLogisticos",
+            "descripcion",
+            "ean",
+            "propietario",
+            "tipoEan"
+          ],
+          "type": "object",
+          "properties": {
+            "camposLibres": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/CamposLibresArticulo"
+              },
+              "nullable": true
+            },
+            "claseDeArticulo": {
+              "maxLength": 25,
+              "type": "string",
+              "nullable": true
+            },
+            "codigo": {
+              "maxLength": 50,
+              "minLength": 1,
+              "type": "string"
+            },
+            "codigoDeVidaUtil": {
+              "type": "string",
+              "nullable": true
+            },
+            "coleccion": {
+              "maxLength": 25,
+              "type": "string",
+              "nullable": true
+            },
+            "color": {
+              "maxLength": 25,
+              "type": "string",
+              "nullable": true
+            },
+            "consumoEnDias": {
+              "type": "string",
+              "nullable": true
+            },
+            "datosLogisticos": {
+              "$ref": "#/components/schemas/DatosLogisticosArticulo"
+            },
+            "descripcion": {
+              "maxLength": 60,
+              "minLength": 1,
+              "type": "string"
+            },
+            "ean": {
+              "maxLength": 50,
+              "minLength": 1,
+              "type": "string"
+            },
+            "esNumeroDeSerieDeEntradaUnico": {
+              "type": "string",
+              "nullable": true
+            },
+            "esNumeroDeSerieSalidaUnico": {
+              "type": "string",
+              "nullable": true
+            },
+            "estilo": {
+              "maxLength": 25,
+              "type": "string",
+              "nullable": true
+            },
+            "finDeTemporada": {
+              "maxLength": 25,
+              "type": "string",
+              "nullable": true
+            },
+            "grupos": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/GruposArticulo"
+              },
+              "nullable": true
+            },
+            "indicadorDeVidaUtil": {
+              "maxLength": 10,
+              "type": "string",
+              "nullable": true
+            },
+            "inicioDeTemporada": {
+              "maxLength": 25,
+              "type": "string",
+              "nullable": true
+            },
+            "instruccionesDePreparacion": {
+              "maxLength": 2000,
+              "type": "string",
+              "nullable": true
+            },
+            "notas": {
+              "maxLength": 2000,
+              "type": "string",
+              "nullable": true
+            },
+            "otrosDatos": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/OtrosDatosArticulo"
+              },
+              "nullable": true
+            },
+            "paisDeOrigen": {
+              "maxLength": 25,
+              "type": "string",
+              "nullable": true
+            },
+            "pavu": {
+              "maxLength": 25,
+              "type": "string",
+              "nullable": true
+            },
+            "propietario": {
+              "maxLength": 15,
+              "minLength": 1,
+              "type": "string"
+            },
+            "psicotropico": {
+              "maxLength": 25,
+              "type": "string",
+              "nullable": true
+            },
+            "rubro": {
+              "maxLength": 128,
+              "type": "string",
+              "nullable": true
+            },
+            "serializado": {
+              "maxLength": 128,
+              "type": "string",
+              "nullable": true
+            },
+            "talle": {
+              "maxLength": 25,
+              "type": "string",
+              "nullable": true
+            },
+            "tema": {
+              "maxLength": 25,
+              "type": "string",
+              "nullable": true
+            },
+            "temperatura": {
+              "maxLength": 25,
+              "type": "string",
+              "nullable": true
+            },
+            "temporada": {
+              "maxLength": 25,
+              "type": "string",
+              "nullable": true
+            },
+            "tipoEan": {
+              "maxLength": 50,
+              "minLength": 1,
+              "type": "string"
+            },
+            "vencimientoEnDias": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "vidaUtilEntradaEnDias": {
+              "type": "string",
+              "nullable": true
+            },
+            "vidaUtilSalidaEnDias": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "DetalleDeLote": {
+          "required": [
+            "articulo",
+            "estadoLote",
+            "loteCaja",
+            "loteSecundario",
+            "propietario",
+            "trazable"
+          ],
+          "type": "object",
+          "properties": {
+            "articulo": {
+              "maxLength": 50,
+              "minLength": 1,
+              "type": "string"
+            },
+            "consumoAntesDe": {
+              "type": "string",
+              "nullable": true
+            },
+            "entregaAntesDe": {
+              "type": "string",
+              "nullable": true
+            },
+            "estadoDeUbicacionLote": {
+              "maxLength": 50,
+              "type": "string",
+              "nullable": true
+            },
+            "estadoLote": {
+              "maxLength": 50,
+              "minLength": 1,
+              "type": "string"
+            },
+            "fechaFabricacion": {
+              "type": "string",
+              "nullable": true
+            },
+            "fechaVencimiento": {
+              "type": "string",
+              "nullable": true
+            },
+            "loteCaja": {
+              "maxLength": 50,
+              "minLength": 1,
+              "type": "string"
+            },
+            "loteSecundario": {
+              "maxLength": 50,
+              "minLength": 1,
+              "type": "string"
+            },
+            "paquete": {
+              "maxLength": 50,
+              "type": "string",
+              "nullable": true
+            },
+            "propietario": {
+              "maxLength": 15,
+              "minLength": 1,
+              "type": "string"
+            },
+            "trazable": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "vidaUtil": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "zonaConsumo": {
+              "maxLength": 128,
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "Direccion": {
+          "type": "object",
+          "properties": {
+            "calle": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "codigoPostal": {
+              "maxLength": 18,
+              "type": "string",
+              "nullable": true
+            },
+            "departamento": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "localidad": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "numero": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "pais": {
+              "maxLength": 10,
+              "type": "string",
+              "nullable": true
+            },
+            "piso": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "provincia": {
+              "maxLength": 25,
+              "type": "string",
+              "nullable": true
+            },
+            "referenciaDeDomicilio": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "Distribuidor": {
+          "type": "object",
+          "properties": {
+            "datosAdicionales": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/DatosAdicionalesPedidos"
+              },
+              "nullable": true
+            },
+            "etiqueta": {
+              "maxLength": 50,
+              "type": "string",
+              "nullable": true
+            },
+            "nombre": {
+              "maxLength": 50,
+              "type": "string",
+              "nullable": true
+            },
+            "numeroDeEnvio": {
+              "maxLength": 50,
+              "type": "string",
+              "nullable": true
+            },
+            "remito": {
+              "maxLength": 50,
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "ErrorAbastecimiento": {
+          "type": "object",
+          "properties": {
+            "field": {
+              "type": "string",
+              "nullable": true
+            },
+            "message": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "ErrorAltaLote": {
+          "type": "object",
+          "properties": {
+            "field": {
+              "type": "string",
+              "nullable": true
+            },
+            "message": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "ErrorArticulo": {
+          "type": "object",
+          "properties": {
+            "field": {
+              "type": "string",
+              "nullable": true
+            },
+            "message": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "ErrorCambioEstadoLote": {
+          "type": "object",
+          "properties": {
+            "field": {
+              "type": "string",
+              "nullable": true
+            },
+            "message": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "ErrorFacturacion": {
+          "type": "object",
+          "properties": {
+            "field": {
+              "type": "string",
+              "nullable": true
+            },
+            "message": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "ErrorMessageAbastecimiento": {
+          "type": "object",
+          "properties": {
+            "detail": {
+              "type": "string",
+              "nullable": true
+            },
+            "errors": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ErrorAbastecimiento"
+              },
+              "nullable": true
+            },
+            "status": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "title": {
+              "type": "string",
+              "nullable": true
+            },
+            "type": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "ErrorMessageAltaLote": {
+          "type": "object",
+          "properties": {
+            "detail": {
+              "type": "string",
+              "nullable": true
+            },
+            "errors": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ErrorAltaLote"
+              },
+              "nullable": true
+            },
+            "status": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "title": {
+              "type": "string",
+              "nullable": true
+            },
+            "type": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "ErrorMessageArticulo": {
+          "type": "object",
+          "properties": {
+            "detail": {
+              "type": "string",
+              "nullable": true
+            },
+            "errors": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ErrorArticulo"
+              },
+              "nullable": true
+            },
+            "status": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "title": {
+              "type": "string",
+              "nullable": true
+            },
+            "type": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "ErrorMessageCambioEstadoLote": {
+          "type": "object",
+          "properties": {
+            "detail": {
+              "type": "string",
+              "nullable": true
+            },
+            "errors": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ErrorCambioEstadoLote"
+              },
+              "nullable": true
+            },
+            "status": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "title": {
+              "type": "string",
+              "nullable": true
+            },
+            "type": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "ErrorMessageFacturacion": {
+          "type": "object",
+          "properties": {
+            "detail": {
+              "type": "string",
+              "nullable": true
+            },
+            "errors": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ErrorFacturacion"
+              },
+              "nullable": true
+            },
+            "status": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "title": {
+              "type": "string",
+              "nullable": true
+            },
+            "type": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "ErrorMessagePedidos": {
+          "type": "object",
+          "properties": {
+            "detail": {
+              "type": "string",
+              "nullable": true
+            },
+            "errors": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ErrorPedidos"
+              },
+              "nullable": true
+            },
+            "status": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "title": {
+              "type": "string",
+              "nullable": true
+            },
+            "type": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "ErrorPedidos": {
+          "type": "object",
+          "properties": {
+            "field": {
+              "type": "string",
+              "nullable": true
+            },
+            "message": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "FacturacionRequest": {
+          "required": [
+            "almacen",
+            "contratoDistribucion",
+            "instancia",
+            "pedido"
+          ],
+          "type": "object",
+          "properties": {
+            "almacen": {
+              "maxLength": 10,
+              "minLength": 1,
+              "type": "string"
+            },
+            "contratoDistribucion": {
+              "maxLength": 20,
+              "minLength": 1,
+              "type": "string"
+            },
+            "instancia": {
+              "maxLength": 10,
+              "minLength": 1,
+              "type": "string"
+            },
+            "pedido": {
+              "$ref": "#/components/schemas/PedidoFacturacion"
+            }
+          },
+          "additionalProperties": false
+        },
+        "FacturacionResponse": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "type": "string",
+              "nullable": true
+            },
+            "fechaCreacion": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "fechaModificacion": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "razon": {
+              "type": "string",
+              "nullable": true
+            },
+            "request": {
+              "$ref": "#/components/schemas/RequestFacturacion"
+            },
+            "response": {
+              "$ref": "#/components/schemas/ResponseFacturacion"
+            }
+          },
+          "additionalProperties": false
+        },
+        "GruposArticulo": {
+          "type": "object",
+          "properties": {
+            "contenido": {
+              "type": "string",
+              "nullable": true
+            },
+            "meta": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "Linea": {
+          "required": [
+            "articulo",
+            "contratoWarehouse",
+            "numeroDeLinea"
+          ],
+          "type": "object",
+          "properties": {
+            "admitePickingParcial": {
+              "maxLength": 128,
+              "type": "string",
+              "nullable": true
+            },
+            "articulo": {
+              "$ref": "#/components/schemas/Articulo"
+            },
+            "contratoWarehouse": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "diasVencimientoMinimo": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "estatusOtDeAcondi": {
+              "maxLength": 128,
+              "type": "string",
+              "nullable": true
+            },
+            "numeroDeLinea": {
+              "maxLength": 20,
+              "minLength": 1,
+              "type": "string"
+            },
+            "tipoDeAcondicionamientoSecundario": {
+              "maxLength": 255,
+              "type": "string",
+              "nullable": true
+            },
+            "tiposDeAcondicionamientoSecundario": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "LineaAbastecimiento": {
+          "required": [
+            "almacenWMS",
+            "articulo",
+            "cantidadPedida",
+            "numeroDeLinea",
+            "propietario"
+          ],
+          "type": "object",
+          "properties": {
+            "accionControlCalidad": {
+              "maxItems": 128,
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            },
+            "almacenWMS": {
+              "maxLength": 50,
+              "minLength": 1,
+              "type": "string"
+            },
+            "articulo": {
+              "$ref": "#/components/schemas/ArticuloAbastecimiento"
+            },
+            "avisoContraMuestra": {
+              "maxLength": 30,
+              "type": "string",
+              "nullable": true
+            },
+            "cantidadPedida": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "codigoAnmat": {
+              "maxLength": 20,
+              "type": "string",
+              "nullable": true
+            },
+            "contratoWarehouse": {
+              "maxLength": 20,
+              "type": "string",
+              "nullable": true
+            },
+            "datosAdicionales": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/DatosAdicionalesAbastecimiento"
+              },
+              "nullable": true
+            },
+            "estatusOTdeTrazaporLPN": {
+              "maxLength": 50,
+              "type": "string",
+              "nullable": true
+            },
+            "estatusOtDeAcondporLpn": {
+              "maxLength": 50,
+              "type": "string",
+              "nullable": true
+            },
+            "numeroDeLinea": {
+              "maxLength": 20,
+              "minLength": 1,
+              "type": "string"
+            },
+            "productoTrazable": {
+              "maxLength": 50,
+              "type": "string",
+              "nullable": true
+            },
+            "propietario": {
+              "maxLength": 50,
+              "minLength": 1,
+              "type": "string"
+            },
+            "tipoAcondicionamiento": {
+              "maxItems": 128,
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            },
+            "tipoControlCalidad": {
+              "maxItems": 128,
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            },
+            "tipoTraza": {
+              "maxLength": 128,
+              "type": "string",
+              "nullable": true
+            },
+            "ubicacionPredeterminada": {
+              "maxLength": 10,
+              "type": "string",
+              "nullable": true
+            },
+            "unidadMedida": {
+              "maxLength": 10,
+              "type": "string",
+              "nullable": true
+            },
+            "valorDeclarado": {
+              "maxLength": 128,
+              "type": "string",
+              "nullable": true
+            },
+            "vidaUtildelLote": {
+              "maxLength": 50,
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "LinkImpresionRemito": {
+          "type": "object",
+          "properties": {
+            "impresionRemito": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "Lote": {
+          "required": [
+            "estado"
+          ],
+          "type": "object",
+          "properties": {
+            "estado": {
+              "maxLength": 50,
+              "minLength": 1,
+              "type": "string"
+            },
+            "fechaDeVencimiento": {
+              "type": "string",
+              "nullable": true
+            },
+            "loteDeFabricante": {
+              "maxLength": 50,
+              "type": "string",
+              "nullable": true
+            },
+            "loteSecundario": {
+              "maxLength": 50,
+              "type": "string",
+              "nullable": true
+            },
+            "otrosDatos": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/DatosAdicionalesPedidos"
+              },
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "LoteAbastecimiento": {
+          "type": "object",
+          "properties": {
+            "datosAdicionales": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/DatosAdicionalesAbastecimiento"
+              },
+              "nullable": true
+            },
+            "estadoLote": {
+              "maxLength": 50,
+              "type": "string",
+              "nullable": true
+            },
+            "fechaDeVencimiento": {
+              "type": "string",
+              "nullable": true
+            },
+            "loteDeFabricante": {
+              "maxLength": 50,
+              "type": "string",
+              "nullable": true
+            },
+            "loteSecundario": {
+              "maxLength": 50,
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "LoteRequest": {
+          "required": [
+            "almacen",
+            "detalleDeLote",
+            "instancia"
+          ],
+          "type": "object",
+          "properties": {
+            "almacen": {
+              "maxLength": 30,
+              "minLength": 1,
+              "type": "string"
+            },
+            "detalleDeLote": {
+              "$ref": "#/components/schemas/DetalleDeLote"
+            },
+            "instancia": {
+              "maxLength": 30,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "LoteResponse": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "type": "string",
+              "nullable": true
+            },
+            "fechaCreacion": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "fechaModificacion": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "razon": {
+              "type": "string",
+              "nullable": true
+            },
+            "request": {
+              "$ref": "#/components/schemas/LoteRequest"
+            },
+            "response": {
+              "$ref": "#/components/schemas/ResponseAltaLote"
+            }
+          },
+          "additionalProperties": false
+        },
+        "Origen": {
+          "type": "object",
+          "properties": {
+            "calle": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "codigoPostal": {
+              "maxLength": 18,
+              "type": "string",
+              "nullable": true
+            },
+            "datosAdicionales": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/DatosAdicionalesAbastecimiento"
+              },
+              "nullable": true
+            },
+            "departamento": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "id": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "localidad": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "nombreProvincia": {
+              "maxLength": 25,
+              "type": "string",
+              "nullable": true
+            },
+            "numero": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            },
+            "piso": {
+              "maxLength": 45,
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "OtrosDatosArticulo": {
+          "type": "object",
+          "properties": {
+            "contenido": {
+              "type": "string",
+              "nullable": true
+            },
+            "meta": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "Pedido": {
+          "required": [
+            "almacenCliente",
+            "destinatario",
+            "distribuidor",
+            "fechaPedido",
+            "lineas",
+            "numeroOrdenExterna",
+            "propietario"
+          ],
+          "type": "object",
+          "properties": {
+            "almacenCliente": {
+              "maxLength": 30,
+              "minLength": 1,
+              "type": "string"
+            },
+            "archivoRemito": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ArchivoRemito"
+              },
+              "nullable": true
+            },
+            "cambioLoteDirigido": {
+              "maxLength": 128,
+              "type": "string",
+              "nullable": true
+            },
+            "cot": {
+              "maxLength": 128,
+              "type": "string",
+              "nullable": true
+            },
+            "datosAdicionales": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/DatosAdicionalesPedidos"
+              },
+              "nullable": true
+            },
+            "destinatario": {
+              "$ref": "#/components/schemas/Destinatario"
+            },
+            "distribuidor": {
+              "$ref": "#/components/schemas/Distribuidor"
+            },
+            "estatusOtDeTraza": {
+              "maxLength": 128,
+              "type": "string",
+              "nullable": true
+            },
+            "facturaLegal": {
+              "maxLength": 128,
+              "type": "string",
+              "nullable": true
+            },
+            "fechaDeExpedicionSolicitada": {
+              "type": "string",
+              "nullable": true
+            },
+            "fechaDeFacturacion": {
+              "type": "string",
+              "nullable": true
+            },
+            "fechaEntrega": {
+              "type": "string",
+              "nullable": true
+            },
+            "fechaPedido": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "franjaHoraria": {
+              "maxLength": 128,
+              "type": "string",
+              "nullable": true
+            },
+            "lineas": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Linea"
+              }
+            },
+            "linkImpresionRemito": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/LinkImpresionRemito"
+              },
+              "nullable": true
+            },
+            "marketPlace": {
+              "maxLength": 128,
+              "type": "string",
+              "nullable": true
+            },
+            "notas": {
+              "maxLength": 128,
+              "type": "string",
+              "nullable": true
+            },
+            "numeroOrdenExterna": {
+              "maxLength": 55,
+              "minLength": 1,
+              "type": "string"
+            },
+            "ordenCompra": {
+              "maxLength": 50,
+              "type": "string",
+              "nullable": true
+            },
+            "precioValorFc": {
+              "maxLength": 128,
+              "type": "string",
+              "nullable": true
+            },
+            "propietario": {
+              "maxLength": 55,
+              "minLength": 1,
+              "type": "string"
+            },
+            "remito": {
+              "maxLength": 55,
+              "type": "string",
+              "nullable": true
+            },
+            "tieneGestionCobranza": {
+              "maxLength": 128,
+              "type": "string",
+              "nullable": true
+            },
+            "valorDeclarado": {
+              "maxLength": 128,
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "PedidoFacturacion": {
+          "required": [
+            "numeroOrdenExterna",
+            "propietario"
+          ],
+          "type": "object",
+          "properties": {
+            "archivoImpresionRemito": {
+              "maxLength": 128,
+              "type": "string",
+              "nullable": true
+            },
+            "cot": {
+              "maxLength": 128,
+              "type": "string",
+              "nullable": true
+            },
+            "datosAdicionales": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/DatosAdicionalesFacturacion"
+              },
+              "nullable": true
+            },
+            "facturaLegal": {
+              "maxLength": 128,
+              "type": "string",
+              "nullable": true
+            },
+            "fechaDeFacturacion": {
+              "type": "string",
+              "nullable": true
+            },
+            "fechaEntrega": {
+              "type": "string",
+              "nullable": true
+            },
+            "linkImpresionRemito": {
+              "maxLength": 128,
+              "type": "string",
+              "nullable": true
+            },
+            "numeroOrdenExterna": {
+              "maxLength": 55,
+              "minLength": 1,
+              "type": "string"
+            },
+            "precioValorFc": {
+              "maxLength": 128,
+              "type": "string",
+              "nullable": true
+            },
+            "propietario": {
+              "maxLength": 55,
+              "minLength": 1,
+              "type": "string"
+            },
+            "remito": {
+              "maxLength": 55,
+              "type": "string",
+              "nullable": true
+            },
+            "tieneGestionCobranza": {
+              "maxLength": 128,
+              "type": "string",
+              "nullable": true
+            },
+            "valorDeclarado": {
+              "maxLength": 128,
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "PedidoRequest": {
+          "required": [
+            "almacen",
+            "contratoDistribucion",
+            "contratoWarehouse",
+            "instancia",
+            "pedido"
+          ],
+          "type": "object",
+          "properties": {
+            "almacen": {
+              "maxLength": 30,
+              "minLength": 1,
+              "type": "string"
+            },
+            "contratoDistribucion": {
+              "maxLength": 20,
+              "minLength": 1,
+              "type": "string"
+            },
+            "contratoWarehouse": {
+              "maxLength": 20,
+              "minLength": 1,
+              "type": "string"
+            },
+            "instancia": {
+              "maxLength": 30,
+              "minLength": 1,
+              "type": "string"
+            },
+            "pedido": {
+              "$ref": "#/components/schemas/Pedido"
+            }
+          },
+          "additionalProperties": false
+        },
+        "PedidoResponse": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "type": "string",
+              "nullable": true
+            },
+            "fechaCreacion": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "fechaModificacion": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "razon": {
+              "type": "string",
+              "nullable": true
+            },
+            "request": {
+              "$ref": "#/components/schemas/RequestPedidos"
+            },
+            "response": {
+              "$ref": "#/components/schemas/ResponsePedidos"
+            }
+          },
+          "additionalProperties": false
+        },
+        "RequestAbastecimiento": {
+          "required": [
+            "abastecimiento",
+            "almacen",
+            "contratoDistribucion",
+            "instancia"
+          ],
+          "type": "object",
+          "properties": {
+            "abastecimiento": {
+              "$ref": "#/components/schemas/Abastecimiento"
+            },
+            "almacen": {
+              "maxLength": 30,
+              "minLength": 1,
+              "type": "string"
+            },
+            "contratoDistribucion": {
+              "maxLength": 20,
+              "minLength": 1,
+              "type": "string"
+            },
+            "contratoWarehouse": {
+              "maxLength": 20,
+              "type": "string",
+              "nullable": true
+            },
+            "instancia": {
+              "maxLength": 30,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "RequestFacturacion": {
+          "type": "object",
+          "properties": {
+            "almacen": {
+              "type": "string",
+              "nullable": true
+            },
+            "contratoDistribucion": {
+              "type": "string",
+              "nullable": true
+            },
+            "instancia": {
+              "type": "string",
+              "nullable": true
+            },
+            "pedido": {
+              "$ref": "#/components/schemas/PedidoFacturacion"
+            }
+          },
+          "additionalProperties": false
+        },
+        "RequestPedidos": {
+          "required": [
+            "almacen",
+            "contratoDistribucion",
+            "contratoWarehouse",
+            "instancia",
+            "pedido"
+          ],
+          "type": "object",
+          "properties": {
+            "almacen": {
+              "maxLength": 30,
+              "minLength": 1,
+              "type": "string"
+            },
+            "contratoDistribucion": {
+              "maxLength": 20,
+              "minLength": 1,
+              "type": "string"
+            },
+            "contratoWarehouse": {
+              "maxLength": 20,
+              "minLength": 1,
+              "type": "string"
+            },
+            "instancia": {
+              "maxLength": 30,
+              "minLength": 1,
+              "type": "string"
+            },
+            "pedido": {
+              "$ref": "#/components/schemas/Pedido"
+            }
+          },
+          "additionalProperties": false
+        },
+        "ResponseAbastecimiento": {
+          "type": "object",
+          "properties": {
+            "idTransaccion": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        },
+        "ResponseAltaLote": {
+          "type": "object",
+          "properties": {
+            "idTransaccion": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        },
+        "ResponseArticulo": {
+          "type": "object",
+          "properties": {
+            "idTransaccion": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        },
+        "ResponseCambioEstadoLote": {
+          "type": "object",
+          "properties": {
+            "idTransaccion": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        },
+        "ResponseFacturacion": {
+          "type": "object",
+          "properties": {
+            "idTransaccion": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        },
+        "ResponsePedidos": {
+          "type": "object",
+          "properties": {
+            "idTransaccion": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        },
+        "Transportista": {
+          "required": [
+            "idTransportista"
+          ],
+          "type": "object",
+          "properties": {
+            "datosPersonales": {
+              "$ref": "#/components/schemas/DatosPersonales"
+            },
+            "idTransportista": {
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "securitySchemes": {
+        "Bearer": {
+          "type": "apiKey",
+          "description": "JWT Authorization header using the Bearer scheme. Example: \"Bearer {token}\"",
+          "name": "Authorization",
+          "in": "header"
+        }
+      }
+    },
+    "security": [
+      {
+        "Bearer": [ ]
+      }
+    ],
+    "tags": [
+      {
+        "name": "CambioEstadoLote",
+        "description": "Cambio Estado Lote"
+      },
+      {
+        "name": "Abastecimiento",
+        "description": "Abastecimiento"
+      },
+      {
+        "name": "AltaLote",
+        "description": "Alta Lote"
+      },
+      {
+        "name": "Articulo",
+        "description": "Articulo"
+      },
+      {
+        "name": "Facturacion",
+        "description": "Facturacion"
+      },
+      {
+        "name": "Pedidos",
+        "description": "Pedidos"
+      }
+    ]
+  }

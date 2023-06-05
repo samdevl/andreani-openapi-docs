@@ -56,12 +56,17 @@ const config = {
         }
       },
       navbar: {
-        title: "Open API Docs",
+        title: "Inicio",
         logo: {
           alt: "Andreani Logo",
-          src: "img/andreanilogo.svg"
+          src: "img/andreanilogo.svg",
         },
         items: [
+          {
+            label: "Open API Docs",
+            position: "left",
+            to: "/docs/category/andreani"
+          },
           // Se podría hacer que rediriga a un archivo md, tipo intro.md 
           // y que desde ahi se puedan desplegar las apis
           //{ to: "/docs/category/petstore-api", label: "API", position: "left" },
@@ -86,11 +91,6 @@ const config = {
             position: "left",
             to: "/docs/category/petstore2-api"
           },*/
-          {
-            href: "https://github.com/facebook/docusaurus",
-            label: "GitHub",
-            position: "right"
-          }
         ]
       },
       /*footer: {
@@ -162,42 +162,13 @@ const config = {
               categoryLinkSource: "tag"
             }
           },*/
-          andreaniAbastecimiento: {
-            specPath: "examples/abastecimiento.json",
-            outputDir: "docs/Abastecimiento",
-          },
-          andreaniAltaLote: {
-            specPath: "examples/altalote.json",
-            outputDir: "docs/Lotes",
-          },
-          andreaniProductos: {
-            specPath: "examples/mantenimientoProductos.json",
-            outputDir: "docs/Mantenimiento-Productos",
-          },
-          andreaniDatosFac: {
-            specPath: "examples/facturacion.json",
-            outputDir: "docs/Facturacion",
-          },
-          andreaniEstadoLote: {
-            specPath: "examples/estadoLote.json",
-            outputDir: "docs/Cambio-Lote",
-          },
-          andreaniPedidos: {
-            specPath: "examples/pedidos.json",
-            outputDir: "docs/Pedidos",
-          },
-          andreaniB2c: {
-            specPath: "examples/b2c.json",
-            outputDir: "docs/B2C",
-          },
-          andreaniPrueba: {
-            specPath: "examples/prueba.json",
-            outputDir: "docs/Prueba-Net",
-          },
-          petstore: {
-            specPath: "examples/petstore.json",
-            outputDir: "docs/Petstore",
-          },
+          andreani: {
+            specPath: "examples/andreani.json",
+            outputDir: "docs/andreani",
+              sidebarOptions: {
+                groupPathsBy: "tag"
+              }
+          }
         }    
       }
     ]
